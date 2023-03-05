@@ -19,7 +19,7 @@ signal(semaphore* s){
 
 
 //writers code
-do{
+
   wait(in);
   wait(mutex);
   
@@ -27,12 +27,12 @@ do{
   
   signal(mutex);
   signal(in);
-}while(true);
+
 
 
 
 //readers code
-do{
+
   wait(in);
   wait(read);
   readCount++;
@@ -46,4 +46,4 @@ do{
   readCount--;
   if(readCount==0)signal(mutex);
   signal(read);
-}while(true);
+
