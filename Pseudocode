@@ -1,0 +1,49 @@
+//semaphore operations
+
+wait(semaphore* s){
+  s->value--;
+  if(s->value<0){
+    //push the process on list of processes waiting on semaphore s
+    block(process);
+  }
+}
+
+signal(semaphore* s){
+  s->value++;
+  if(s->value<=0){
+    //take a process out of the process list of semaphore s
+    wakeup(process);
+  }
+}
+
+
+
+//writers code
+do{
+  wait(in);
+  wait(mutex);
+  
+  //perform writing
+  
+  signal(mutex);
+  signal(in);
+}while(true);
+
+
+
+//readers code
+do{
+  wait(in);
+  wait(read);
+  readCount++;
+  if(readCount==1)wait(mutex);
+  signal(in);
+  signal(read);
+  
+  //perform reading
+  
+  wait(read);
+  readCount--;
+  if(readCount==0)signal(mutex);
+  signal(read);
+}while(true);
