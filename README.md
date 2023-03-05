@@ -1,6 +1,6 @@
 # CSN-232-Starve-free-Readers-Writers-Problem
 
-Each semaphore(counting semaphores are used) would have two variables/data structures associated with it, namely a process queue consisting of process waiting on that
+Each semaphore(counting semaphores are used) would have two variables/data structures associated with it, namely a process queue consisting of processes waiting on that
 semaphore, and a value indicating the current value of the semaphore. "readCount" indicates the number of readers currently reading.
 
 Initially, the state is as follows:
