@@ -9,7 +9,7 @@ mutex->value=1;
 read->value=1;
 
 
-"mutex" is the semaphore which is needed to gain permission to access the critical section by either readers or writers
+"mutex" is the semaphore which is needed to gain permission to access the critical section by either readers or writers.
 "in" is the semaphore which is needed to prevent starvation
     
 Working:
