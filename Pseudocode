@@ -37,8 +37,8 @@ do{
   wait(read);
   readCount++;
   if(readCount==1)wait(mutex);
-  signal(in);
   signal(read);
+  signal(in);
   
   //perform reading
   
